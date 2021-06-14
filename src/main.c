@@ -13,9 +13,6 @@ int main(int ac, char **av)
     pokemon_all *game = init_game();
     sort_pokemon(game);
     srandom(time(0));
-    printf("\ntest id %i\n", game->pokemon[0]->id);
-    printf("next test = %s\n", game->pokemon[0]->sortname);
-
     combat(game, user_input);
     return 0;
 }

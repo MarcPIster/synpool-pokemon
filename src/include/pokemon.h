@@ -55,3 +55,4 @@ void sort_pokemon(pokemon_all *game);
 char **get_input(int ac, char **av);
 void combat(pokemon_all *game, char **player);
 int get_random_num (int min, int max);
+void print_beginning(char **names, pokemon_all *game);
