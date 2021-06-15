@@ -22,7 +22,7 @@ int count_csvs(DIR *d, struct dirent *dir, int count)
 }
 
 void create_paths(DIR *d, struct dirent *dir, struct mydir *output)
-        {
+{
     int count = 0;
     FILE *fptr;
     while (dir) {

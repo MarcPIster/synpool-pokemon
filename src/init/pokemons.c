@@ -57,10 +57,10 @@ void free_csv_struc(csv **my_csvs, mydir *my_dir)
 {
     for (int x = 0; x < my_dir->files; x++) {
         free(my_csvs[x]);
+        free(my_dir->name[x]);
         free(my_csvs[x]->data);
     }
     free(my_csvs);
-    free(my_dir->name);
     free(my_dir);
 }
 
