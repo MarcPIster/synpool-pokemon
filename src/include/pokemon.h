@@ -37,13 +37,13 @@ typedef struct pokemon_one {
     int defense;
     int speed;
     int health;
-    int alive;
-    int id;
 } pokemone_one;
 
 typedef struct pokemon_all {
     int max;
     pokemone_one **pokemon;
+    char *player_one;
+    char *player_two;
 } pokemon_all;
 
 void free_parsed_csv(csv *parsed_csv);
@@ -56,3 +56,9 @@ char **get_input(int ac, char **av);
 void combat(pokemon_all *game, char **player);
 int get_random_num (int min, int max);
 void print_beginning(char **names, pokemon_all *game);
+void free_all(pokemon_all *game, char **user);
+int calc_attack(const pokemon_all *game, int player_attack, \
+int player_def, int turn);
+int attack_move(const pokemon_all *game, int player_attack, int player_def);
+int check_speed(pokemon_all *game, int player1, int player2);
+int get_index(pokemon_all *game, char *string);

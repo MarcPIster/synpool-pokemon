@@ -43,9 +43,8 @@ void create_paths(DIR *d, struct dirent *dir, struct mydir *output)
 mydir *open_dir(char *directory)
 {
     DIR *d;
-    struct dirent *dir;
+    struct dirent *dir = NULL;
     struct mydir *output = malloc(sizeof(mydir));
-    FILE *fptr;
     int count = 0;
 
     d = opendir(directory);

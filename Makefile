@@ -16,7 +16,8 @@ SRC = src/main.c \
 	src/init/pokemons.c \
 	src/init/get_input.c \
 	src/combat/get_ran_num.c \
-	src/combat/loop.c
+	src/combat/loop.c \
+	src/combat/calc_combat.c
 
 OBJ = $(SRC:.c=.o)
 

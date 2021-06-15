@@ -57,7 +57,7 @@ char **my_str_to_word_array(char *str, char sep)
             output[j][k - 1] = str[i];
         } else if (str[i] != sep) {
             output[j][k] = str[i];
-            output[j][k + 1] = NULL;
+            output[j][k + 1] = '\0';
             k++;
         }
         output[j][k] = (in_word && str[i] == sep) ? '\0' : output[j][k];

@@ -14,5 +14,6 @@ int main(int ac, char **av)
     sort_pokemon(game);
     srandom(time(0));
     combat(game, user_input);
+    free_all(game, user_input);
     return 0;
 }

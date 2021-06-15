@@ -68,9 +68,6 @@ csv *parse_data(char *content, csv *output)
     return output;
 }
 
-// Input : Filepath to file needing to be parsed
-// Output : malloc'd pointer to structure containing malloc'd char *** + info
-// MUST BE FREED : the returned pointer // the char *** // the char ** (labels)
 csv *parse_csv(char *filepath)
 {
     char *content = read_file(filepath);
@@ -78,5 +75,6 @@ csv *parse_csv(char *filepath)
     if (!output)
         return NULL;
     output = parse_data(content, output);
+    free(content);
     return output;
 }

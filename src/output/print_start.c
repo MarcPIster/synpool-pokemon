@@ -7,6 +7,15 @@
 
 #include "../include/pokemon.h"
 
+void free_names(char **names, int max)
+{
+    for (int x = 0; x < max; x++) {
+        free(names[x]);
+        names[x] = NULL;
+    }
+    free(names);
+}
+
 void print_beginning(char **names, pokemon_all *game)
 {
     for (int x = 0; x < game->max; x++) {
@@ -15,7 +24,9 @@ void print_beginning(char **names, pokemon_all *game)
                 printf("Pokemon %s has %i attack, %i defense ", \
                     game->pokemon[y]->name, game->pokemon[y]->attack, \
                     game->pokemon[y]->defense);
-                printf("%i speed and %i health\n", game->pokemon[y]->speed, game->pokemon[y]->health);
+                printf("%i speed and %i health\n", \
+                game->pokemon[y]->speed, game->pokemon[y]->health);
             }
     }
+    free_names(names, game->max);
 }

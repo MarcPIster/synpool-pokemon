@@ -23,3 +23,24 @@ void free_char_table(char **table)
         free(table[i]);
     free(table);
 }
+
+void free_user(char **user)
+{
+    for (int x = 0; x < 2; x++) {
+        free(user[x]);
+    }
+    free(user);
+}
+
+void free_all(pokemon_all *game, char **user)
+{
+    for (int x = 0; x < game->max; x++) {
+        free(game->pokemon[x]->name);
+        free(game->pokemon[x]->sortname);
+        free(game->pokemon[x]);
+        game->pokemon[x] = NULL;
+    }
+    free(game->pokemon);
+    free(game);
+    free_user(user);
+}
