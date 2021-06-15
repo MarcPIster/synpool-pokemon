@@ -18,5 +18,7 @@ char *my_strcat(char *str1, char *str2)
     for (int i = str1_l; i < str1_l + str2_l; i++)
         output[i] = str2[i - str1_l];
     output[str1_l + str2_l] = '\0';
+    if (!output)
+        exit(84);
     return output;
 }

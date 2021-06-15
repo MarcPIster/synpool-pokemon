@@ -11,13 +11,14 @@ char **create_array(pokemon_all *game)
 {
     char **output = malloc(sizeof(char *) * (game->max+1));
 
-    if (!output)
-        exit(84);
+
     output[game->max] = NULL;
     for (int x = 0; x < game->max; x++) {
         output[x] = malloc(sizeof(char) * \
         (my_strlen(game->pokemon[x]->sortname) + 1));
         strcpy(output[x], game->pokemon[x]->sortname);
+        if (!output[x])
+            exit(84);
     }
     return output;
 }

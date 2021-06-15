@@ -47,16 +47,21 @@ pokemone_one *create_pokemon(char **info)
     output->defense = my_getnbr(info[2]);
     output->speed = my_getnbr(info[3]);
     output->health = my_getnbr(info[4]);
+
+    if (!output)
+        exit(84);
     return output;
 }
 
-void free_csv_struc(csv **my_csvs, int max)
+void free_csv_struc(csv **my_csvs, mydir *my_dir)
 {
-    for (int x = 0; x < max; x++) {
+    for (int x = 0; x < my_dir->files; x++) {
         free(my_csvs[x]);
         free(my_csvs[x]->data);
     }
     free(my_csvs);
+    free(my_dir->name);
+    free(my_dir);
 }
 
 pokemon_all *init_game(void)
@@ -70,6 +75,7 @@ pokemon_all *init_game(void)
     output->max = max;
     output->pokemon = malloc(sizeof(pokemone_one)*(max + 1));
     max = 0;
+    check_malloc_mainstruct(output, my_csvs);
     for (int x = 0; x < my_dir->files; x++) {
         my_csvs[x] = parse_csv(my_dir->name[x]);
         for (int y = 0; y < my_csvs[x]->n_rows; y++)
@@ -79,8 +85,6 @@ pokemon_all *init_game(void)
             }
     }
     output->pokemon[max] = NULL;
-    free_csv_struc(my_csvs, my_dir->files);
-    free(my_dir->name);
-    free(my_dir);
+    free_csv_struc(my_csvs, my_dir);
     return output;
 }

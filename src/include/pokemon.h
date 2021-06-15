@@ -62,3 +62,4 @@ int player_def, int turn);
 int attack_move(const pokemon_all *game, int player_attack, int player_def);
 int check_speed(pokemon_all *game, int player1, int player2);
 int get_index(pokemon_all *game, char *string);
+void check_malloc_mainstruct(pokemon_all *game, csv **my_csvs);

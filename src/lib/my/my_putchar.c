@@ -19,6 +19,8 @@ char *small_string(char *string)
             output[x] = string[x];
     }
     output[max] = '\0';
+    if (!output)
+        exit(84);
     return output;
 }
 

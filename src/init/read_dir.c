@@ -48,11 +48,13 @@ mydir *open_dir(char *directory)
     int count = 0;
 
     d = opendir(directory);
-    if (!d)
+    if (!d || !output)
         exit(84);
     count = count_csvs(d, dir, count);
     d = opendir(directory);
     output->name = malloc(sizeof(char *) * (count+1));
+    if (!output->name)
+        exit(84);
     dir = readdir(d);
     create_paths(d, dir, output);
     return output;

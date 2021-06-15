@@ -17,7 +17,8 @@ SRC = src/main.c \
 	src/init/get_input.c \
 	src/combat/get_ran_num.c \
 	src/combat/loop.c \
-	src/combat/calc_combat.c
+	src/combat/calc_combat.c \
+	src/init/check_malloc.c
 
 OBJ = $(SRC:.c=.o)
 
